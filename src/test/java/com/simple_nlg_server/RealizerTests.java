@@ -40,6 +40,6 @@ public class RealizerTests {
       .andDo(print())
       .andExpect(status().isOk())
       .andExpect(content().string(containsString("An angioplasty balloon catheter, the D701000000992, was deployed.")));
-	}
+  }
 
 }
