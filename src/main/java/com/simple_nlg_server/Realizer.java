@@ -45,16 +45,16 @@ public class Realizer {
     RecordSet records = null;
 
     try(StringReader reader = new StringReader(xml)) {
-			records = XMLRealiser.getRecording(reader);
+      records = XMLRealiser.getRecording(reader);
       String paragraph = "";
       for (DocumentRealisation document : records.getRecord()) {
         paragraph = paragraph + document.getRealisation().trim();
       }
 
       return paragraph;
-		} catch(XMLRealiserException e) {
+    } catch(XMLRealiserException e) {
       throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Unable to parse XML into text", e);
-		} catch (Exception e) {
+    } catch (Exception e) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred", e);
     }
   }
