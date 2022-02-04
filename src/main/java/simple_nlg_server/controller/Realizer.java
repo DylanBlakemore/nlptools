@@ -1,7 +1,6 @@
-package com.simple_nlg_server;
+package simple_nlg_server.controller;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +24,12 @@ import simplenlg.xmlrealiser.wrapper.RecordSet;
 import simplenlg.xmlrealiser.XMLRealiser;
 import simplenlg.xmlrealiser.XMLRealiserException;
 import simplenlg.xmlrealiser.wrapper.DocumentRealisation;
+import simplenlg.xmlrealiser.wrapper.XmlDocumentElement;
 
 import java.io.StringReader;
 
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 public class Realizer {
 
@@ -44,17 +43,20 @@ public class Realizer {
 
     RecordSet records = null;
 
-    try(StringReader reader = new StringReader(xml)) {
+    try (StringReader reader = new StringReader(xml)) {
       records = XMLRealiser.getRecording(reader);
       String paragraph = "";
       for (DocumentRealisation document : records.getRecord()) {
-        paragraph = paragraph + document.getRealisation().trim();
+        String realisation = XMLRealiser.realise((XmlDocumentElement) document.getDocument());
+        paragraph = paragraph + "\n" + realisation.trim();
       }
 
-      return paragraph;
+      return "{\"text\": \"" + paragraph + "\"}";
     } catch(XMLRealiserException e) {
+      System.out.println(e.getMessage());
       throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Unable to parse XML into text", e);
     } catch (Exception e) {
+      System.out.println(e.getMessage());
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred", e);
     }
   }

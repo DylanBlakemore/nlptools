@@ -1,4 +1,4 @@
-package com.simple_nlg_server;
+package simple_nlg_server.controller;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -26,7 +26,7 @@ public class RealizerTests {
   private MockMvc mockMvc;
 
   private String getXml() throws IOException {
-    String xml = new String(Files.readAllBytes(Paths.get("./src/test/java/com/simple_nlg_server/test_xml.txt")));
+    String xml = new String(Files.readAllBytes(Paths.get("./src/test/resources/test_xml.txt")));
     return xml;
   }
   
