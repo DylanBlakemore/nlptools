@@ -1,4 +1,4 @@
-package nlptools.controller;
+package nlptools.realisation;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class RealizerTests {
+public class RealisationControllerTests {
 
   @Autowired
   private MockMvc mockMvc;
@@ -36,10 +36,10 @@ public class RealizerTests {
     String content = String.format("{\"xml\": \"%s\"}", xml);
 
     this.mockMvc
-      .perform(post("/realize").contentType(MediaType.APPLICATION_JSON).content(content))
+      .perform(post("/realise").contentType(MediaType.APPLICATION_JSON).content(content))
       .andDo(print())
       .andExpect(status().isOk())
-      .andExpect(content().string(containsString("{\"text\": [\"An angioplasty balloon catheter, the D701000000992, was deployed.\"]}")));
+      .andExpect(content().string(containsString("{\"text\":[\"An angioplasty balloon catheter, the D701000000992, was deployed.\"]}")));
   }
 
 }
