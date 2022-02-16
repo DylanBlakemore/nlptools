@@ -15,9 +15,8 @@ public class RealisationController {
 
   @PostMapping(value="/realise", produces="application/json")
   public Realisation realise(@RequestBody Map<String, Object> body) {
-    String xml = body.get("xml").toString();
-
     try {
+      String xml = body.get("xml").toString();
       return Realisation.realiseXml(xml);
     } catch(XMLRealiserException e) {
       System.out.println(e.getMessage());

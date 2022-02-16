@@ -19,7 +19,7 @@ public class ChunkController {
   
   @PostMapping(value="/chunk", produces="application/json")
   public ChunkResult chunk(@RequestBody Map<String, Object> body) {
-    String sentence = body.get("sentence").toString();
+    String sentence = body.get("document").toString();
 
     try {
       NlpEngine engine = new NlpEngine();

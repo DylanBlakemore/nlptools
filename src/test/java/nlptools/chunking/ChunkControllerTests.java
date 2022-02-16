@@ -23,8 +23,8 @@ public class ChunkControllerTests {
   
   @Test
   public void shouldReturnCategorisedChunks() throws Exception {
-    String content = "{\"sentence\": \"He reckons the current account deficit will narrow to only 8 billion.\"}";
-    String chunkedResult = "{\"chunks\":[{\"phrase\":\"He\",\"pos\":\"NP\"},{\"phrase\":\"reckons\",\"pos\":\"VP\"},{\"phrase\":\"the current account deficit\",\"pos\":\"NP\"},{\"phrase\":\"will narrow\",\"pos\":\"VP\"},{\"phrase\":\"to\",\"pos\":\"PP\"},{\"phrase\":\"only 8 billion\",\"pos\":\"NP\"}]}";
+    String content = "{\"document\": \"He reckons the current account deficit will narrow to only 8 billion. He is wrong.\"}";
+    String chunkedResult = "{\"chunks\":[{\"phrase\":\"He\",\"pos\":\"NP\"},{\"phrase\":\"reckons\",\"pos\":\"VP\"},{\"phrase\":\"the current account deficit\",\"pos\":\"NP\"},{\"phrase\":\"will narrow\",\"pos\":\"VP\"},{\"phrase\":\"to\",\"pos\":\"PP\"},{\"phrase\":\"only 8 billion\",\"pos\":\"NP\"},{\"phrase\":\"He\",\"pos\":\"NP\"},{\"phrase\":\"is\",\"pos\":\"VP\"},{\"phrase\":\"wrong\",\"pos\":\"ADJP\"}]}";
 
     this.mockMvc
       .perform(post("/chunk").contentType(MediaType.APPLICATION_JSON).content(content))
