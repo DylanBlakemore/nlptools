@@ -1,4 +1,4 @@
-package nlp_server.chunking;
+package nlptools.chunking;
 
 public class Chunk {
 

@@ -1,4 +1,4 @@
-package nlp_server.engines;
+package nlptools.engines;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,11 +1,11 @@
-package nlp_server.chunking;
+package nlptools.chunking;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import nlp_server.engines.NlpEngine;
+import nlptools.engines.NlpEngine;
 import opennlp.tools.tokenize.SimpleTokenizer;
 import opennlp.tools.util.Span;
 

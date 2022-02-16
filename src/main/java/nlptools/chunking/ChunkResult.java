@@ -1,4 +1,4 @@
-package nlp_server.chunking;
+package nlptools.chunking;
 
 import java.util.ArrayList;
 import java.util.Arrays;

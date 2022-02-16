@@ -1,4 +1,4 @@
-package nlp_server.controller;
+package nlptools.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

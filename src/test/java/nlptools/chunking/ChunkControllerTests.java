@@ -1,4 +1,4 @@
-package nlp_server.chunking;
+package nlptools.chunking;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
