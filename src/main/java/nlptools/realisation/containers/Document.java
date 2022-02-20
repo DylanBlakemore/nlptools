@@ -17,7 +17,7 @@ public class Document {
       xml.append(sentence.toXml());
     }
 
-    xml.append("</Document></Record></Recording></NLGSpec>")
+    xml.append("</Document></Record></Recording></NLGSpec>");
 
     return xml.toString();
   }
