@@ -2,11 +2,11 @@ package nlptools.chunking;
 
 public class Chunk {
 
-  public String phrase;
+  public String content;
   public String pos;
 
-  public Chunk (String phrase, String pos) {
-    this.phrase = phrase;
+  public Chunk (String content, String pos) {
+    this.content = content;
     this.pos = pos;
   }
   

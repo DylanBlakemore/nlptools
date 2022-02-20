@@ -24,7 +24,7 @@ public class ChunkControllerTests {
   @Test
   public void shouldReturnCategorisedChunks() throws Exception {
     String content = "{\"document\": \"He reckons the current account deficit will narrow to only 8 billion. He is wrong.\"}";
-    String chunkedResult = "{\"chunks\":[{\"phrase\":\"He\",\"pos\":\"NP\"},{\"phrase\":\"reckons\",\"pos\":\"VP\"},{\"phrase\":\"the current account deficit\",\"pos\":\"NP\"},{\"phrase\":\"will narrow\",\"pos\":\"VP\"},{\"phrase\":\"to\",\"pos\":\"PP\"},{\"phrase\":\"only 8 billion\",\"pos\":\"NP\"},{\"phrase\":\"He\",\"pos\":\"NP\"},{\"phrase\":\"is\",\"pos\":\"VP\"},{\"phrase\":\"wrong\",\"pos\":\"ADJP\"}]}";
+    String chunkedResult = "{\"chunks\":[{\"content\":\"He\",\"pos\":\"NP\"},{\"content\":\"reckons\",\"pos\":\"VP\"},{\"content\":\"the current account deficit\",\"pos\":\"NP\"},{\"content\":\"will narrow\",\"pos\":\"VP\"},{\"content\":\"to\",\"pos\":\"PP\"},{\"content\":\"only 8 billion\",\"pos\":\"NP\"},{\"content\":\"He\",\"pos\":\"NP\"},{\"content\":\"is\",\"pos\":\"VP\"},{\"content\":\"wrong\",\"pos\":\"ADJP\"}]}";
 
     this.mockMvc
       .perform(post("/chunk").contentType(MediaType.APPLICATION_JSON).content(content))
