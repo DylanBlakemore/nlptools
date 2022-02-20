@@ -9,7 +9,8 @@
 		<version>2.6.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>nlp-tools</artifactId>
+  <groupId>dylanblakemore</groupId>
+	<artifactId>nlptools</artifactId>
 	<version>0.0.1</version>
 	<name>NLP Tools</name>
 	<description>A number of useful NLP-related tools exposed via simple APIs</description>
