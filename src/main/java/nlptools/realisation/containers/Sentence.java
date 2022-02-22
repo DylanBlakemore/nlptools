@@ -15,7 +15,11 @@ public class Sentence {
 
   public String toXml() {
     StringBuilder content = new StringBuilder();
-    content.append(subject.toXml("subj")).append(verb.toXml("vp"));
+
+    if (subject != null) content.append(subject.toXml("subj"));
+    if (verb != null) content.append(verb.toXml("vp"));
+    if (object != null) content.append(object.toXml("compl"));
+
     return XmlHelper.wrap(
       "child",
       "xsi:type=\"SPhraseSpec\"",
