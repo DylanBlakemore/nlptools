@@ -1,16 +1,12 @@
 #Workflow name
 name: CI/CD Pipeline
 on:
-  #Manually trigger workflow runs
   workflow_dispatch:
-  #Trigger the workflow on push from the main branch
+  pull_request:
   push:
-    branches:
-      - master
 jobs:
   #Test's job
   tests:
-    on: pull_request
     name: Unit tests
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
@@ -73,6 +69,7 @@ jobs:
     #Depends on build's job
     needs: build
     name: Deploy
+    if: github.ref == 'refs/heads/master'
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     steps:
