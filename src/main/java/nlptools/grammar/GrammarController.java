@@ -17,14 +17,14 @@ import java.util.Map;
 @RestController
 public class GrammarController {
   
-  @PostMapping(value="/grammar/determiner", produces="application/json")
-  public String determiner(@RequestBody Map<String, Object> body) throws Exception {
+  @PostMapping(value="/grammar/article", produces="application/json")
+  public String article(@RequestBody Map<String, Object> body) throws Exception {
     String noun = body.get("noun").toString();
-    String determiner = body.get("determiner").toString();
+    String article = body.get("article").toString();
 
     NLGFactory nlgFactory = NlpEngine.instance.nlgFactory();
     NPPhraseSpec nounPhrase = nlgFactory.createNounPhrase(noun);
-    nounPhrase.setDeterminer(determiner);
+    nounPhrase.setDeterminer(article);
     return NlpEngine.instance.realiser().realiseSentence(nounPhrase);
   }
 }

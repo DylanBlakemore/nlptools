@@ -23,7 +23,7 @@ public class GrammarControllerTests {
 
   private void testDeterminer(String params, String expectedResult) throws Exception {
     this.mockMvc
-      .perform(post("/grammar/determiner").contentType(MediaType.APPLICATION_JSON).content(params))
+      .perform(post("/grammar/article").contentType(MediaType.APPLICATION_JSON).content(params))
       .andDo(print())
       .andExpect(status().isOk())
       .andExpect(content().string(containsString("a dog")));
@@ -31,9 +31,9 @@ public class GrammarControllerTests {
   
   @Test
   public void determinerShouldReturnTheCorrectForm() throws Exception {
-    testDeterminer("{\"noun\":\"dog\",\"determiner\":\"a\"}", "a dog");
-    testDeterminer("{\"noun\":\"dog\",\"determiner\":\"A\"}", "A dog");
-    testDeterminer("{\"noun\":\"owl\",\"determiner\":\"a\"}", "an owl");
-    testDeterminer("{\"noun\":\"unicorn\",\"determiner\":\"a\"}", "a unicorn");
+    testDeterminer("{\"noun\":\"dog\",\"article\":\"a\"}", "a dog");
+    testDeterminer("{\"noun\":\"dog\",\"article\":\"A\"}", "A dog");
+    testDeterminer("{\"noun\":\"owl\",\"article\":\"a\"}", "an owl");
+    testDeterminer("{\"noun\":\"unicorn\",\"article\":\"a\"}", "a unicorn");
   }
 }
